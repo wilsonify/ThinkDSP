@@ -8,9 +8,9 @@ License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 from __future__ import print_function, division
 
 import numpy
-import thinkstats2
+from thinkdsp import thinkstats2
 import thinkdsp
-import thinkplot
+from thinkdsp import thinkplot
 
 
 def process_noise(signal, root='white'):

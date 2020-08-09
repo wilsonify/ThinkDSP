@@ -11,7 +11,7 @@ import numpy as np
 import pandas as pd
 
 import thinkdsp
-import thinkplot
+from thinkdsp import thinkplot
 
 PI2 = np.pi * 2
 GRAY = '0.7'

@@ -8,8 +8,8 @@ License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 from __future__ import print_function, division
 
 import thinkdsp
-import thinkplot
-import thinkstats2
+from thinkdsp import thinkplot
+from thinkdsp import thinkstats2
 import numpy as np
 
 PI2 = 2 * np.pi

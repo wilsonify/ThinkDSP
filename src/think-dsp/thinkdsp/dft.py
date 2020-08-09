@@ -11,7 +11,7 @@ import math
 import numpy
 
 import thinkdsp
-import thinkplot
+from thinkdsp import thinkplot
 
 PI2 = math.pi * 2
 

@@ -11,7 +11,7 @@ import math
 import numpy as np
 
 import thinkdsp
-import thinkplot
+from thinkdsp import thinkplot
 
 import matplotlib.pyplot as pyplot
 

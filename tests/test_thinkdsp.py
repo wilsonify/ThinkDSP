@@ -8,7 +8,22 @@ License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 from __future__ import print_function, division
 
 import unittest
-import thinkdsp
+from thinkdsp import (
+aliasing,
+autocorr,
+chirp,
+convolution,
+dct,
+dft,
+diff_int,
+noise,
+sampling,
+sounds,
+systems,
+thinkdsp,
+thinkplot,
+thinkstats2
+)
 
 import numpy as np
 
