@@ -9,28 +9,32 @@ from __future__ import print_function, division
 
 import unittest
 from thinkdsp import (
-aliasing,
-autocorr,
-chirp,
-convolution,
-dct,
-dft,
-diff_int,
-noise,
-sampling,
-sounds,
-systems,
-thinkdsp,
-thinkplot,
-thinkstats2
+    aliasing,
+    autocorr,
+    chirp,
+    convolution,
+    dct,
+    dft,
+    diff_int,
+    noise,
+    sampling,
+    sounds,
+    systems,
+    thinkdsp,
+    thinkplot,
+    thinkstats2
 )
 
 import numpy as np
 
 
+def test_smoke():
+    print("is anything on fire?")
+
+
 class Test(unittest.TestCase):
     def assertArrayAlmostEqual(self, a, b):
-        total_error = np.sum(np.abs(a-b))
+        total_error = np.sum(np.abs(a - b))
         self.assertAlmostEqual(total_error, 0)
 
     def testMakeSpectrum(self):
@@ -40,7 +44,7 @@ class Test(unittest.TestCase):
         spectrum = wave.make_spectrum()
         self.assertAlmostEqual(spectrum.hs[0], 45)
         wave2 = spectrum.make_wave()
-        #print(wave2.ys)
+        # print(wave2.ys)
         self.assertArrayAlmostEqual(wave.ys, wave2.ys)
 
         # rfft with n odd
@@ -50,9 +54,9 @@ class Test(unittest.TestCase):
         self.assertAlmostEqual(spectrum.hs[0], 55)
 
         # TODO: make rfft invertible when n is odd
-        #wave2 = spectrum.make_wave()
-        #print(wave2.ys)
-        #self.assertArrayAlmostEqual(wave.ys, wave2.ys)
+        # wave2 = spectrum.make_wave()
+        # print(wave2.ys)
+        # self.assertArrayAlmostEqual(wave.ys, wave2.ys)
 
         # fft with n even
         ys = np.arange(10)
@@ -60,7 +64,7 @@ class Test(unittest.TestCase):
         spectrum = wave.make_spectrum(full=True)
         self.assertAlmostEqual(spectrum.hs[0], 45)
         wave2 = spectrum.make_wave()
-        #print(wave2.ys)
+        # print(wave2.ys)
         self.assertArrayAlmostEqual(wave.ys, wave2.ys)
 
         # fft with n odd
@@ -69,13 +73,13 @@ class Test(unittest.TestCase):
         spectrum = wave.make_spectrum(full=True)
         self.assertAlmostEqual(spectrum.hs[0], 55)
         wave2 = spectrum.make_wave()
-        #print(wave2.ys)
+        # print(wave2.ys)
         self.assertArrayAlmostEqual(wave.ys, wave2.ys)
 
     def testComplexSinusoid(self):
         signal = thinkdsp.ComplexSinusoid(440, 0.7, 1.1)
         result = signal.evaluate(2.1) * complex(-1.5, -0.5)
-        self.assertAlmostEqual(result, -0.164353351475-1.09452637056j)
+        self.assertAlmostEqual(result, -0.164353351475 - 1.09452637056j)
 
     def testChirp(self):
         signal = thinkdsp.Chirp(100, 200, 0.5)
@@ -113,7 +117,3 @@ class Test(unittest.TestCase):
                                      framerate=11025)
 
         self.assertEqual(len(impulses), 14332)
-
-
-if __name__ == "__main__":
-    unittest.main()
